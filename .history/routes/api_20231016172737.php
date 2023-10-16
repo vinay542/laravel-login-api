@@ -18,16 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::namespace('Api')->group(function(){
+Route::namespace('api')->group(function(){
     Route::prefix('auth')->group(function(){
-        Route::post('login','AuthController@login');
-        Route::post('signup','AuthController@signup');
+        Route::post('login','AuthController@login')
+        Route::post('signup','AuthController@signup')
     });
 
     Route::group([
         'middleware'=>'auth:api'
-    ],function(){
- Route::get('helloword','AuthController@index');
-    });
+    ],function)
 
 });
